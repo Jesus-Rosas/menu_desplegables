@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu de Android</title>
+	<link rel="stylesheet" href="css/estilos.css">
+	<script src="js/modernizr.custom.22539.js"></script>
+</head>
+<body>
+	<header>
+	<figure>
+		
+		<h1>LOGO</h1>
+	</figure>
+		<nav>
+			<ul>
+				<li><a href="#">Opcion1</a></li>
+				<li><a href="#">Opcion2</a></li>
+				<li><a href="#">Opcion3</a></li>
+				<li><a href="#">Opcion4</a></li>
+			</ul>
+		<figure>
+			<a href="#" onclick="ActivarMenu()"><img src="menu.png" alt=""></a>
+		</figure>
+		</nav>
+	</header>
+	<div id="content">
+	</div>
+	<script>
+		menuActivado = false;
+		function ActivarMenu()
+		{
+			//comprobar como esta el menu
+			if(menuActivado == false )
+			{
+				altura = -210;
+				move = setInterval(function(){
+					altura+=3;
+					if(altura == 0) clearInterval(move);
+					document.getElementById('content').style.top = altura + "px";
+				}, 1);
+				
+				menuActivado = true;
+			}
+			else{
+				altura = 0;
+				move = setInterval(function(){
+					altura+=3;
+					if(altura == 210) clearInterval(move);
+					document.getElementById('content').style.top = "-" + altura + "px";
+				}, 1);
+				menuActivado = false;
+
+			}
+		}
+	</script>
+</body>
+</html>
